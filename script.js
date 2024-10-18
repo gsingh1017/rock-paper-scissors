@@ -12,3 +12,23 @@ function getComputerChoice() {
     }
     return "scissors";
 }
+
+function getHumanChoice() {
+    // user picks choice
+    let choice = window.prompt("Rock, Paper, or Scissors?");
+
+    // return one of 3 options
+    if (choice.toLowerCase() === "rock"){
+        return "rock";
+    }
+    if (choice.toLowerCase() === "paper"){
+        return "paper";
+    }
+    if (choice.toLowerCase() === "scissors"){
+        return "scissors";
+    }
+
+    // resets function if input isn't one of 3 choices
+    alert("Invalid input, try again.");
+    getHumanChoice();
+}
