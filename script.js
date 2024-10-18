@@ -1,3 +1,6 @@
+/* Rock, Paper, & Scissors Javascript File */
+
+
 // console picks random choice
 function getComputerChoice() {
     // random number between 1 - 3
@@ -20,6 +23,7 @@ function getHumanChoice() {
     let choice = window.prompt("Rock, Paper, or Scissors?");
 
     // return one of 3 options
+    // all user inputs lowercase regardless of uppercase iterations
     if (choice.toLowerCase() === "rock"){
         return "rock";
     }
@@ -30,7 +34,7 @@ function getHumanChoice() {
         return "scissors";
     }
 
-    // resets function if input isn't one of 3 choices
+    // call function again if input isn't one of 3 choices
     alert("Invalid input, try again.");
     getHumanChoice();
 }
@@ -84,13 +88,33 @@ function playRound(humanChoice, computerChoice){
 }
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// play game
+function playGame() {
 
-console.log(humanSelection);
-console.log(computerSelection);
+    // play game until humanScore or computerScore is 5    
+    while ((humanScore != 5) && (computerScore != 5)) {
+        // get choice from user and computer
+         const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
 
+        // log choices
+        console.log(humanSelection);
+        console.log(computerSelection);
 
-console.log(playRound(humanSelection, computerSelection));
+        // play round
+        console.log(playRound(humanSelection, computerSelection));
 
+        // log scores
+        console.log(humanScore);
+        console.log(computerScore);
+    }
 
+    // returns winner
+    if (humanScore === 5) {
+        return console.log("Congratulations, you win the game!")
+    } else {
+        return console.log("You lose the game. :(");
+    }
+}
+
+playGame();
