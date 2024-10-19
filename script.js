@@ -20,23 +20,21 @@ function getComputerChoice() {
 // user input
 function getHumanChoice() {
 
-    let choice = window.prompt("Rock, Paper, or Scissors?");
+    let choice = prompt("Rock, Paper, or Scissors?");
 
     // return one of 3 options
     // all user inputs lowercase regardless of uppercase iterations
     if (choice.toLowerCase() === "rock"){
         return "rock";
-    }
-    if (choice.toLowerCase() === "paper"){
+    } else if (choice.toLowerCase() === "paper"){
         return "paper";
-    }
-    if (choice.toLowerCase() === "scissors"){
+    } else if (choice.toLowerCase() === "scissors"){
         return "scissors";
+    } else {
+        // call function again if input isn't one of 3 choices
+        alert("Invalid input, try again.");
+        return getHumanChoice();
     }
-
-    // call function again if input isn't one of 3 choices
-    alert("Invalid input, try again.");
-    getHumanChoice();
 }
 
 
@@ -93,8 +91,9 @@ function playGame() {
 
     // play game until humanScore or computerScore is 5    
     while ((humanScore != 5) && (computerScore != 5)) {
+
         // get choice from user and computer
-         const humanSelection = getHumanChoice();
+        const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
         // log choices
@@ -105,15 +104,15 @@ function playGame() {
         console.log(playRound(humanSelection, computerSelection));
 
         // log scores
-        console.log(humanScore);
-        console.log(computerScore);
+        console.log("Your Score: " + humanScore);
+        console.log("Computer Score: " + computerScore);  
     }
 
     // returns winner
     if (humanScore === 5) {
         return console.log("Congratulations, you win the game!")
     } else {
-        return console.log("You lose the game. :(");
+        return console.log("You lose the game. :( \n");
     }
 }
 
