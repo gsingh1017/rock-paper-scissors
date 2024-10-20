@@ -1,7 +1,9 @@
 # rock-paper-scissors
 
 
-This is my first working game ever coded. It may not be the most optimised code, but it a working game based on my tests. 
+This is my first working game ever coded. It may not be the most optimised code, but it a working game based on my tests.
+
+The game is played entirely in the console. 
 
 A little explination on how I coded this game: 
 
