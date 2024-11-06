@@ -66,7 +66,7 @@ function playRound(humanChoice, computerChoice){
 
 
 function playGame(choice) {
-    
+
     let computerSelection = getComputerChoice();
 
     // update user and computer picks on index.html
@@ -107,7 +107,7 @@ function handleResult(winnerString) {
     const removeButton = document.querySelector("#buttons");
     removeButton.remove();
 
-    // remove certain result elements
+    // remove certain result elements from #updates div
     const removeHumanPick = document.querySelector("#humanPick");
     const removeComputerPick = document.querySelector("#computerPick");
     removeHumanPick.remove();
