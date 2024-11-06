@@ -22,7 +22,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-// compares choices (runs round) and adjusts score
+// compares choices (runs round) and adjusts score accordingly 
 function playRound(humanChoice, computerChoice){
     
     // string are the same
@@ -66,14 +66,18 @@ function playRound(humanChoice, computerChoice){
 
 
 function playGame(choice) {
+    
     let computerSelection = getComputerChoice();
 
+    // update user and computer picks on index.html
     const updateHumanPick = document.querySelector("#humanPick");
     const updateComputerPick = document.querySelector("#computerPick");
     const updateResult = document.querySelector("#result");
 
     updateHumanPick.textContent = "You picked " + choice + ".";
     updateComputerPick.textContent = "Computer picked " + computerSelection + ".";
+
+    // runs round and updates result
     updateResult.textContent = playRound(choice, computerSelection); 
 
     // display updated scores
@@ -83,13 +87,31 @@ function playGame(choice) {
     updateHumanScore.textContent = "Your Score: " + humanScore;
     updateComputerScore.textContent = "Computer Score: " + computerScore;
 
-    // stops game when either user or console gets a score of 5
+    // calls handleResult function when user or computer reaches score of 5
     if (humanScore === 5) {
-        alert("Congratulations, you win the game!");
+        handleResult("Congratulations, you win the game!");
     } else  if (computerScore === 5){
-        alert("You lose the game. :( \n");
+        handleResult("You lose the game.");
     } 
 
+}
+
+
+function handleResult(winnerString) {
+
+    // display winnder
+    const result = document.querySelector("#result");
+    result.textContent = winnerString;
+
+    // remove buttons to prevent additional rounds being played
+    const removeButton = document.querySelector("#buttons");
+    removeButton.remove();
+
+    // remove certain result elements
+    const removeHumanPick = document.querySelector("#humanPick");
+    const removeComputerPick = document.querySelector("#computerPick");
+    removeHumanPick.remove();
+    removeComputerPick.remove();
 }
 
 
